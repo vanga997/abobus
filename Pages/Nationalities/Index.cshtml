@@ -1,0 +1,42 @@
+@page
+@model MarriageAgencyWeb.Pages_Nationalities.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Национальность</h1>
+
+<p>
+    <a asp-page="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality[0].NationalityName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality[0].Comments)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Nationality) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NationalityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.NationalityId">Редактировать</a> |
+                <a asp-page="./Details" asp-route-id="@item.NationalityId">Свойства</a> |
+                <a asp-page="./Delete" asp-route-id="@item.NationalityId">удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

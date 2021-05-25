@@ -1,0 +1,40 @@
+@page
+@model MarriageAgencyWeb.Pages_Services.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>удалить</h1>
+
+<h3>Вы уверены что хотите удалить запись?</h3>
+<div>
+    <h4>Service</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Cost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Cost)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service.Worker)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Worker.Address)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Service.ServiceId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Назад</a>
+    </form>
+</div>

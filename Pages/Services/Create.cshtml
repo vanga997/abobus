@@ -1,0 +1,48 @@
+@page
+@model MarriageAgencyWeb.Pages_Services.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Добавить</h1>
+
+<h4>Услуги</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Service.ServiceId" class="control-label"></label>
+                <input asp-for="Service.ServiceId" class="form-control" />
+                <span asp-validation-for="Service.ServiceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.Date" class="control-label"></label>
+                <input asp-for="Service.Date" class="form-control" />
+                <span asp-validation-for="Service.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.Cost" class="control-label"></label>
+                <input asp-for="Service.Cost" class="form-control" />
+                <span asp-validation-for="Service.Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service.WorkerId" class="control-label"></label>
+                <select asp-for="Service.WorkerId" class ="form-control" asp-items="ViewBag.WorkerId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

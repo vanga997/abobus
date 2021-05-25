@@ -1,0 +1,71 @@
+@page
+@model MarriageAgencyWeb.Pages.RequestsAndFilters.Request.ListOfClientsModel
+@{
+    <h1>Список клиентов</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Client[0].FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Client[0].ZodiacId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Client[0].RelationId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Client[0].NationalityId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Client)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.ZodiacSign.First(r => r.ZodiacId == item.ZodiacId).ZodiacName
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Relation.First(r => r.RelationId == item.RelationId).RelationName
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Nationality.First(r => r.NationalityId == item.NationalityId).NationalityName
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

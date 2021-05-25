@@ -1,0 +1,46 @@
+@page
+@model MarriageAgencyWeb.Pages_Positions.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы уверены, что хотите удалить запись?</h3>
+<div>
+    <h4>Должность</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Position.PositionName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Position.PositionName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Position.Salary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Position.Salary)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Position.Responsibility)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Position.Responsibility)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Position.Requirements)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Position.Requirements)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Position.PositionId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Назад</a>
+    </form>
+</div>

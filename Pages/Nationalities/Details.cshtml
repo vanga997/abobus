@@ -1,0 +1,31 @@
+@page
+@model MarriageAgencyWeb.Pages_Nationalities.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Свойства</h1>
+
+<div>
+    <h4>Национальность</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nationality.NationalityName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nationality.NationalityName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nationality.Comments)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nationality.Comments)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Nationality.NationalityId">Редактировать</a> |
+    <a asp-page="./Index">Назад</a>
+</div>

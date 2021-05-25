@@ -1,0 +1,34 @@
+@page
+@model MarriageAgencyWeb.Pages_Nationalities.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>удалить</h1>
+
+<h3>Вы уверены что хотите удалить запись?</h3>
+<div>
+    <h4>Национальность</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nationality.NationalityName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nationality.NationalityName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nationality.Comments)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nationality.Comments)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Nationality.NationalityId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">назад</a>
+    </form>
+</div>

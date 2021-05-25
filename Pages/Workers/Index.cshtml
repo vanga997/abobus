@@ -1,0 +1,72 @@
+@page
+@model MarriageAgencyWeb.Pages_Workers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Сотрудник</h1>
+
+<p>
+    <a asp-page="Create">Добавить новую запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Worker[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Worker[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Worker[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Worker[0].Passport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Worker[0].Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Worker[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Worker[0].Position)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Worker) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Passport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.PositionName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.WorkerId">Редактировать</a> |
+                <a asp-page="./Details" asp-route-id="@item.WorkerId">Свойства</a> |
+                <a asp-page="./Delete" asp-route-id="@item.WorkerId">удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

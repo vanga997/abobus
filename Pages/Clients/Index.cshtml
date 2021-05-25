@@ -1,0 +1,138 @@
+@page
+@model MarriageAgencyWeb.Pages_Clients.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Клиент</h1>
+
+<p>
+    <a asp-page="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Birthday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Passport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].FamilyStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].InfoAboutPartner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].NumberOfChild)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].BadHabbits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Hobbies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].ZodiacId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Nationality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Relation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client[0].Service)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Client) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Passport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfoAboutPartner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfChild)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BadHabbits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hobbies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZodiacId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality.NationalityId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Relation.RelationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.ServiceId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ClientId">Редактировать</a> |
+                <a asp-page="./Details" asp-route-id="@item.ClientId">Свойства</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ClientId">удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
